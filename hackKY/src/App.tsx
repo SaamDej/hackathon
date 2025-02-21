@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./app.css"
 
 export default function App() {
   const [image, setImage] = useState<string | null>(null);
@@ -14,9 +15,6 @@ export default function App() {
   return (
     <div className="app-container">
       <div className="landing-content">
-      <nav className="navbar">
-        <h1>EmotionaList</h1>
-      </nav>
         <h2>Generate a Spotify Playlist from Your Face</h2>
         <div className="card">
           <label className="upload-label">
