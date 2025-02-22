@@ -1,17 +1,16 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './index.css';
-import App from './App.tsx';
-import UploadImagePage from './UploadImagePage.tsx';
-
+import AuthPages from './AuthPages.tsx';
+import OnboardingPage from './onBoardingPage.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Router>
       <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/upload" element={<UploadImagePage />} />
+        <Route path="/" element={<AuthPages />} />
+        <Route path="/onboarding" element={<OnboardingPage />} />
       </Routes>
     </Router>
   </StrictMode>

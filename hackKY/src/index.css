@@ -91,3 +91,22 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+.genre-button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.3em 1em; /* Smaller padding */
+  font-size: 0.9em; /* Smaller font size */
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 5px;
+}
+
+/* Purple background when selected */
+.genre-button.selected {
+  background-color: #6a0dad; /* Purple color */
+  color: white;
+}

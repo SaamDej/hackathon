@@ -1,19 +1,28 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+// src/firebaseConfig.ts
+import { initializeApp } from 'firebase/app';
+import { getAuth } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
+import { getAnalytics } from 'firebase/analytics';
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// Firebase configuration
 const firebaseConfig = {
-  apiKey: `${process.env.FIREBASE_API_KEY}`,
-  authDomain: "harmonify-7ed94.firebaseapp.com",
-  projectId: "harmonify-7ed94",
-  storageBucket: "harmonify-7ed94.firebasestorage.app",
-  messagingSenderId: "719234140025",
-  appId: "1:719234140025:web:f0c66188cd2952624611a8",
-  measurementId: "G-G42L1N74NE"
+  apiKey: 'AIzaSyBzcjFFu40YJ1X0_S4-6ZvxfKZGkYrjMwk',
+  authDomain: 'harmonify-7ed94.firebaseapp.com',
+  projectId: 'harmonify-7ed94',
+  storageBucket: 'harmonify-7ed94.appspot.com', // Corrected storage bucket URL
+  messagingSenderId: '719234140025',
+  appId: '1:719234140025:web:f0c66188cd2952624611a8',
+  measurementId: 'G-G42L1N74NE',
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+
+// Initialize Firebase services
+export const auth = getAuth(app);
+export const db = getFirestore(app);
+
+// Optional: Initialize analytics only if running in a browser
+if (typeof window !== 'undefined') {
+  getAnalytics(app);
+}
