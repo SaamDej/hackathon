@@ -3,29 +3,28 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 100vw;
   min-height: 100vh;
   background: linear-gradient(to bottom right, #6a0dad, #8d8890);
   color: white;
   text-align: center;
-  padding: 20px;
 }
 
 /* Landing content */
 .landing-content {
   width: 100%;
-  height: 100%;
+  height: 50%;
   margin-top: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 h2 {
   font-size: 2rem;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
 
 /* Card styling */
