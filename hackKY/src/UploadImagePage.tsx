@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useFirebaseUser } from './FirebaseUserContext';
 
 export default function UploadImagePage() {
+  const { user, userData } = useFirebaseUser();
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [image, setImage] = useState<File | null>(null);
@@ -15,6 +17,11 @@ export default function UploadImagePage() {
     title: string;
     artist: string;
   }
+
+  useEffect(() => {
+    console.log("Logged in user:", user?.email);
+    console.log("User full name:", userData?.firstName, userData?.lastName);
+  }, [user, userData]);
 
   useEffect(() => {
     if (isWebcamActive) {
@@ -128,6 +135,9 @@ export default function UploadImagePage() {
 
   return (
     <div className="app-container">
+      
+      <h1 style={{marginBottom: '0'}}>Hi, {userData?.firstName}</h1>
+      <h2 style={{marginBottom: '1rem', width: '70%', color: 'white'}}>Let's find some music and movies that match your mood.</h2>
       <div style={{ display: 'flex', flexDirection: 'column', gap: "1rem", alignItems: "center" }}>
         {imagePreview ? (
           <div style={{width: "350px", borderRadius: "1rem"}}>
@@ -157,12 +167,10 @@ export default function UploadImagePage() {
           {loading ? "Analyzing..." : "Submit Image"}
         </button>
         )}
-        {/* 
+
         <button onClick={() => fetchSongs("happy")} className='button-1' style={{ marginTop: "20px" }}>
           Test Fetch Songs (Happy Mood)
         </button>
-
-        {emotion && <h3>Detected Mood: {emotion}</h3>}
 
         {songs.length > 0 && (
           <div>
@@ -176,7 +184,7 @@ export default function UploadImagePage() {
             </ul>
           </div>
         )}
-        */}
+
       </div>
     </div>
   );

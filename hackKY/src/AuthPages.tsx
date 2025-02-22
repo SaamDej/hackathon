@@ -3,14 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import './app.css';
 import { auth, db } from './firebaseConfig';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
-import { addDoc, collection, doc, getDoc } from 'firebase/firestore';
+import { addDoc, collection, doc, getDoc, setDoc } from 'firebase/firestore';
 
 // Login Page Component
 function LoginPage({ onSwitchToSignUp }: { onSwitchToSignUp: () => void }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-
+  
   const handleLogin = async () => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
@@ -81,14 +81,13 @@ function SignUpPage({ onSwitchToLogin }: { onSwitchToLogin: () => void }) {
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
-
-      await addDoc(collection(db, 'users'), {
-        uid: user.uid,
+  
+      await setDoc(doc(db, 'users', user.uid), {
         firstName,
         lastName,
         email,
       });
-
+  
       alert('User registered successfully!');
       navigate('/onboarding');
     } catch (error: any) {

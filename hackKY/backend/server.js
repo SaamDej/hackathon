@@ -39,7 +39,7 @@ app.post('/api/get-songs', async (req, res) => {
         {
           role: 'system',
           content:
-            'You are a music recommendation assistant. Based on the user’s emotion, suggest 5 songs. Format your response as a JSON array with each song containing "title" and "artist". Do not include any other text.',
+            'You are a music recommendation assistant. Based on the user’s emotion, suggest 5 **completely different** songs **each time** the request is made. Ensure diversity by randomly selecting from a large database of songs. Do not repeat previous suggestions. Format your response as a JSON array with each song containing "title" and "artist". Do not include any other text.',
         },
         {
           role: 'user',
@@ -47,7 +47,7 @@ app.post('/api/get-songs', async (req, res) => {
         },
       ],
       model: 'deepseek-chat',
-      max_tokens: 300,
+      max_tokens: 300
     });
 
     console.log('DeepSeek API response:', JSON.stringify(completion, null, 2));
