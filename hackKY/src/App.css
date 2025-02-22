@@ -87,3 +87,58 @@ h2 {
 .generate-button:hover {
   background: #540c9c;
 }
+.slide-in-left {
+  animation: slide-in-left 0.5s forwards;
+}
+
+.slide-in-right {
+  animation: slide-in-right 0.5s forwards;
+}
+
+@keyframes slide-in-left {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-right {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.large-input {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 8px;
+}
+
+.transparent-input {
+  background-color: transparent;
+  border: 2px solid #ddd;
+  color: black;
+}
+
+.text-button {
+  background: none;
+  border: none;
+  color: #6a0dad;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+}
+
+.text-button:hover {
+  color: #540c9c;
+}
