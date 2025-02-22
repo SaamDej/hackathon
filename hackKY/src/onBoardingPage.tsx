@@ -47,7 +47,7 @@ export default function OnboardingPage() {
                 musicGenres: selectedMusicGenres,
                 movieGenres: selectedMovieGenres,
             }, { merge: true });
-            alert('Preferences saved successfully!');
+            navigate('/uploadImagePage');
         }
     };
 
@@ -70,7 +70,7 @@ export default function OnboardingPage() {
                     ))}
                 </div>
             </div>
-
+            <div style={{height: '2rem'}}></div>
             <div className="card">
                 <h3>Movie Genres</h3>
                 <div className="genre-selection">

@@ -19,14 +19,14 @@ function LoginPage({ onSwitchToSignUp }: { onSwitchToSignUp: () => void }) {
         const docRef = doc(db, 'users', user.uid);
         const docSnap = await getDoc(docRef);
         if (docSnap.exists() && docSnap.data().musicGenres && docSnap.data().movieGenres) {
-          alert('Logged in successfully!');
+          navigate('/uploadImagePage');
         } else {
           navigate('/onboarding');
         }
       }
     } catch (error: any) {
       console.error('Login Error:', error);
-      alert('invalid Credentials');
+      alert('Failed to log in. ' + error.message);
     }
   };
 
