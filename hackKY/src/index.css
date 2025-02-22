@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background: linear-gradient(to bottom right, #6a0dad, #8d8890);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -53,7 +53,32 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+.button-1 {
+  width: '20rem';
+  background: #6a0dad;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
 
+.button-1 input {
+  display: none;
+}
+.login-button:hover {
+  background: #540c9c;
+  transform: scale(1.05);
+}
+
+.button-1:active {
+  background: #430a7a;
+  transform: scale(0.98);
+}
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

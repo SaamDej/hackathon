@@ -136,7 +136,10 @@ h2 {
   color: #540c9c;
 }
 
-/* Login Button */
+.button-1 {
+  
+}
+
 .login-button {
   background: #6a0dad;
   color: white;
@@ -150,6 +153,9 @@ h2 {
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
 }
 
+.login-button input {
+  display: none;
+}
 .login-button:hover {
   background: #540c9c;
   transform: scale(1.05);
