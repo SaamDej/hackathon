@@ -1,33 +1,30 @@
-/* General page styling */
 .app-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
   background: linear-gradient(to bottom right, #6a0dad, #8d8890);
   color: white;
   text-align: center;
 }
-
-/* Landing content */
-.landing-content {
-  width: 100%;
-  height: 50%;
-  margin-top: 80px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+.logo {
+  width: 20rem;
+  height: auto;
+  margin-bottom: -7rem;
+}
+h1 {
+  font-size: 5rem;
+  margin-bottom: 0px;
 }
 
 h2 {
   font-size: 2rem;
   margin-bottom: 50px;
+  color: #0a0a0a;
 }
 
-/* Card styling */
 .card {
   background: white;
   color: black;
@@ -39,7 +36,6 @@ h2 {
   text-align: center;
 }
 
-/* Upload label */
 .upload-label {
   display: flex;
   flex-direction: column;
@@ -56,7 +52,6 @@ h2 {
   background: rgba(106, 13, 173, 0.1);
 }
 
-/* Hide default file input */
 .hidden-input {
   display: none;
 }
@@ -71,7 +66,6 @@ h2 {
   border: 1px solid #ddd;
 }
 
-/* Generate Playlist button */
 .generate-button {
   background: #6a0dad;
   color: white;
@@ -140,4 +134,28 @@ h2 {
 
 .text-button:hover {
   color: #540c9c;
+}
+
+/* Login Button */
+.login-button {
+  background: #6a0dad;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.login-button:hover {
+  background: #540c9c;
+  transform: scale(1.05);
+}
+
+.login-button:active {
+  background: #430a7a;
+  transform: scale(0.98);
 }

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Music } from "lucide-react";
 import { Link } from "react-router-dom";
+import  Logo from "./assets/Logo-2.png";
 
 import "./app.css";
 
@@ -17,29 +17,11 @@ export default function App() {
 
   return (
     <div className="app-container">
-      <div className="landing-content">
-        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-          <Music size={45} />
-          <h1>Harmonify</h1>
-        </div>
+        <img src={Logo} alt="App Logo" className="logo" />
         <h2>Generate a Spotify Playlist from Your Face</h2>
-        <div className="card">
-          <label className="upload-label">
-            <span>Upload an image of your face</span>
-            <input
-              type="file"
-              accept="image/*"
-              className="hidden-input"
-              onChange={handleImageUpload}
-            />
-          </label>
-          {image && <img src={image} alt="Uploaded preview" className="preview-image" />}
-          <button className="generate-button">Generate Playlist</button>
-        </div>
-        <Link to="/auth">
-          <button className="login-button">Login</button>
+        <Link to="/test">
+          <button className="login-button">Demo</button>
         </Link>
-      </div>
     </div>
   );
 }
