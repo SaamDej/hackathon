@@ -53,8 +53,8 @@ export default function OnboardingPage() {
 
     return (
         <div className="app-container">
-            <h2>Welcome to Harmonify!</h2>
-            <p>Select up to 3 of your favorite music and movie genres:</p>
+            <h1>Welcome to Harmonify!</h1>
+            <p style={{marginBottom: '1rem'}}>Select up to 3 of your favorite music and movie genres:</p>
 
             <div className="card">
                 <h3>Music Genres</h3>
@@ -86,7 +86,7 @@ export default function OnboardingPage() {
                 </div>
             </div>
 
-            <button className="generate-button" onClick={handleSubmit} disabled={selectedMusicGenres.length === 0 || selectedMovieGenres.length === 0}>
+            <button className="button-1" onClick={handleSubmit} style={{marginTop: '1rem'}} disabled={selectedMusicGenres.length === 0 || selectedMovieGenres.length === 0}>
                 Save Preferences
             </button>
         </div>

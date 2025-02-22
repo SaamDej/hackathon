@@ -7,6 +7,7 @@ import OnboardingPage from "./onBoardingPage.tsx";
 import UploadImagePage from "./UploadImagePage.tsx";
 import { FirebaseUserProvider } from "./FirebaseUserContext.tsx";
 import PlaybackPage from "./PlaybackPage.tsx";
+import SongPlayerPage from "./SongPlayerPage.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -16,7 +17,7 @@ createRoot(document.getElementById("root")!).render(
           <Route path="/" element={<AuthPages />} />
           <Route path="/onboarding" element={<OnboardingPage />} />
           <Route path="/uploadImagePage" element={<UploadImagePage />} />
-          <Route path="/playback" element={<PlaybackPage />}/>
+          <Route path="/song-player" element={<SongPlayerPage />}/>
         </Routes>
       </Router>
     </FirebaseUserProvider>

@@ -102,8 +102,10 @@ export default function UploadImagePage() {
             throw new Error('Failed to fetch songs.');
         }
 
+        
         const data = await response.json();
         setSongs(data.songs);
+        navigate('/song-player', { state: { songs: data.songs } });
     } catch (error) {
         console.error('Error fetching songs:', error);
         alert('Error fetching song recommendations.');
@@ -169,7 +171,6 @@ export default function UploadImagePage() {
           {loading ? "Analyzing..." : "Submit Image"}
         </button>
         )}
-          {/* Display Songs & YouTube Video Embeds */}
           {songs.length > 0 && (
           <div style={{ marginTop: "2rem" }}>
             <h3>Recommended Songs</h3>
