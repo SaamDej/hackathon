@@ -8,6 +8,13 @@ export default function UploadImagePage() {
   const [loading, setLoading] = useState(false);
   const [emotion, setEmotion] = useState<string | null>(null);
   const [isWebcamActive, setIsWebcamActive] = useState(true);
+  const [songs, setSongs] = useState<Song[]>([]);
+  const hasFetched = useRef(false);
+
+  type Song = {
+    title: string;
+    artist: string;
+  }
 
   useEffect(() => {
     if (isWebcamActive) {
@@ -65,10 +72,34 @@ export default function UploadImagePage() {
   };
 
   useEffect(() => {
-    if (emotion) {
-      //fetchSongsFromOpenAI(emotion);
+    if (emotion && !hasFetched.current) {
+      fetchSongs(emotion);
+      hasFetched.current = true; // Mark it as fetched to prevent infinite calls
     }
   }, [emotion]);
+
+  const fetchSongs = async (emotion: string) => {
+    try {
+        const response = await fetch('http://localhost:5001/api/get-songs', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ emotion }), 
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch songs.');
+        }
+
+        const data = await response.json();
+        setSongs(data.songs);
+    } catch (error) {
+        console.error('Error fetching songs:', error);
+        alert('Error fetching song recommendations.');
+    }
+  };
+
 
   const takePhoto = () => {
     if (videoRef.current && canvasRef.current) {
@@ -126,6 +157,26 @@ export default function UploadImagePage() {
           {loading ? "Analyzing..." : "Submit Image"}
         </button>
         )}
+        {/* 
+        <button onClick={() => fetchSongs("happy")} className='button-1' style={{ marginTop: "20px" }}>
+          Test Fetch Songs (Happy Mood)
+        </button>
+
+        {emotion && <h3>Detected Mood: {emotion}</h3>}
+
+        {songs.length > 0 && (
+          <div>
+            <h3>Recommended Songs</h3>
+            <ul>
+              {songs.map((song, index) => (
+                <li key={index}>
+                  <strong>{song.title}</strong> - {song.artist}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+        */}
       </div>
     </div>
   );
