@@ -11,15 +11,8 @@ export default function UploadImagePage() {
   const [loading, setLoading] = useState(false);
   const [emotion, setEmotion] = useState<string | null>(null);
   const [isWebcamActive, setIsWebcamActive] = useState(true);
-  const [songs, setSongs] = useState<Song[]>([]);
   const hasFetched = useRef(false);
   const navigate = useNavigate();
-
-  type Song = {
-    title: string;
-    artist: string;
-    youtubeUrl?: string;
-  };
 
   useEffect(() => {
     console.log("Logged in user:", user?.email);
@@ -62,7 +55,7 @@ export default function UploadImagePage() {
     formData.append("file", image);
 
     try {
-      const response = await fetch("http://10.30.2.175:5050/detect-emotion", {
+      const response = await fetch("http://10.30.0.171:5050/detect-emotion", {
         method: "POST",
         body: formData,
       });
@@ -90,7 +83,7 @@ export default function UploadImagePage() {
 
   const fetchSongs = async (emotion: string) => {
     try {
-        const response = await fetch('http://localhost:5001/api/get-songs', {
+        const response = await fetch('http://10.30.0.171:5001/api/get-songs', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -104,7 +97,6 @@ export default function UploadImagePage() {
 
         
         const data = await response.json();
-        setSongs(data.songs);
         navigate('/song-player', { state: { songs: data.songs } });
     } catch (error) {
         console.error('Error fetching songs:', error);
@@ -144,8 +136,8 @@ export default function UploadImagePage() {
       <h2 style={{marginBottom: '1rem', width: '70%', color: 'white'}}>Let's find some music and movies that match your mood.</h2>
       <div style={{ display: 'flex', flexDirection: 'column', gap: "1rem", alignItems: "center" }}>
         {imagePreview ? (
-          <div style={{width: "500px", borderRadius: "1rem"}}>
-            <img src={imagePreview} width="500px" alt="Uploaded or Captured" className="preview" />
+          <div style={{width: "70%", maxWidth: "500px",borderRadius: "1rem"}}>
+            <img src={imagePreview} width="70%" alt="Uploaded or Captured" className="preview" />
           </div>
         ) : (
           <div style={{width: "500px", borderRadius: "1rem"}}>
@@ -170,31 +162,6 @@ export default function UploadImagePage() {
         <button onClick={handleSubmit} disabled={loading} className='button-1'>
           {loading ? "Analyzing..." : "Submit Image"}
         </button>
-        )}
-          {songs.length > 0 && (
-          <div style={{ marginTop: "2rem" }}>
-            <h3>Recommended Songs</h3>
-            <ul>
-              {songs.map((song, index) => (
-                <li key={index}>
-                  <strong>{song.title}</strong> - {song.artist}
-                  {song.youtubeUrl && (
-                    <div style={{ marginTop: '10px' }}>
-                      <iframe
-                        width="300"
-                        height="180"
-                        src={song.youtubeUrl.replace("watch?v=", "embed/")}
-                        title={song.title}
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                      ></iframe>
-                    </div>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
         )}
       </div>
     </div>
