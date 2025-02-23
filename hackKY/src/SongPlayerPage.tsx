@@ -1,4 +1,3 @@
-import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 type Song = {
@@ -13,12 +12,12 @@ export default function SongPlayerPage() {
   const songs: Song[] = location.state?.songs || [];
 
   return (
-    <div style={{width: '100vw', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center'}}>
+    <div style={{width: '70%', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'left'}}>
       <h1>Recommended Songs</h1>
       {songs.length > 0 ? (
         <ul style={{listStyle: 'none', alignItems: 'center'}}>
           {songs.map((song: Song, index: number) => (
-            <li style={{display: 'flex', flexDirection: 'column'}}key={index}>
+            <li style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}key={index}>
 
               {song.youtubeUrl && (
                 <iframe
