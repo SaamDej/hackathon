@@ -1,7 +1,7 @@
 
 # Harmonify: Emotion-Based Music & Movie Recommendation App
 
-## open using this command for camera access (base) nourramadan@Nours-MacBook-Air ~ % open -na "Google Chrome" --args --unsafely-treat-insecure-origin-as-secure="http://10.30.0.171:3000" --user-data-dir="/tmp/chrome_dev"
+## <open -na "Google Chrome" --args --unsafely-treat-insecure-origin-as-secure="http://10.30.0.171:3000" --user-data-dir="/tmp/chrome_dev">
 
 ## 📌 **Project Overview**
 Harmonify is an innovative application that leverages artificial intelligence to analyze the user's mood from uploaded photos and provide personalized music playlists and movie recommendations. The app integrates the Youtube API for music and uses Deepseek to suggest mood-based tracks. For movies, it offers high-rated suggestions matching the detected mood.
