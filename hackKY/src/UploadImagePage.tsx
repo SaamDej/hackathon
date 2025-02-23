@@ -144,12 +144,12 @@ export default function UploadImagePage() {
       <h2 style={{marginBottom: '1rem', width: '70%', color: 'white'}}>Let's find some music and movies that match your mood.</h2>
       <div style={{ display: 'flex', flexDirection: 'column', gap: "1rem", alignItems: "center" }}>
         {imagePreview ? (
-          <div style={{width: "350px", borderRadius: "1rem"}}>
-            <img src={imagePreview} width="350px" alt="Uploaded or Captured" className="preview" />
+          <div style={{width: "500px", borderRadius: "1rem"}}>
+            <img src={imagePreview} width="500px" alt="Uploaded or Captured" className="preview" />
           </div>
         ) : (
-          <div style={{width: "350px", borderRadius: "1rem"}}>
-            <video ref={videoRef} autoPlay playsInline style={{ width: "350px", borderRadius: "1rem", transform: "scaleX(-1)" }}></video>
+          <div style={{width: "500px", borderRadius: "1rem"}}>
+            <video ref={videoRef} autoPlay playsInline style={{ width: "500px", borderRadius: "1rem", transform: "scaleX(-1)" }}></video>
           </div>
         )}
 
