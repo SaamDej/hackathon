@@ -12,7 +12,9 @@
   "dependencies": {
     "@spotify/web-api-ts-sdk": "^1.2.0",
     "axios": "^1.7.9",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.7",
+    "express": "^4.21.2",
     "firebase": "^11.3.1",
     "lucide-react": "^0.475.0",
     "openai": "^4.85.3",
@@ -33,6 +35,6 @@
     "globals": "^15.14.0",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.22.0",
-    "vite": "^6.1.0"
+    "vite": "^6.1.1"
   }
 }
