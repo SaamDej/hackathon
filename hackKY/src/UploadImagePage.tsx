@@ -97,7 +97,7 @@ export default function UploadImagePage() {
 
         
         const data = await response.json();
-        navigate('/song-player', { state: { songs: data.songs } });
+        navigate('/song-player', { state: { songs: data.songs, mood: emotion } });
     } catch (error) {
         console.error('Error fetching songs:', error);
         alert('Error fetching song recommendations.');
@@ -133,7 +133,7 @@ export default function UploadImagePage() {
   return (
     <div className="app-container">
       <h1 style={{marginBottom: '0'}}>Hi, {userData?.firstName}</h1>
-      <h2 style={{marginBottom: '1rem', width: '70%', color: 'white'}}>Let's find some music and movies that match your mood.</h2>
+      <h2 style={{marginBottom: '1rem', width: '70%', color: 'white'}}>Let's find some music that matches your mood.</h2>
       <div style={{ display: 'flex', flexDirection: 'column', gap: "1rem", alignItems: "center" }}>
         {imagePreview ? (
           <div style={{width: "70%", maxWidth: "500px",borderRadius: "1rem"}}>

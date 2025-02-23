@@ -10,10 +10,11 @@ export default function SongPlayerPage() {
   const location = useLocation();
   const navigate = useNavigate();
   const songs: Song[] = location.state?.songs || [];
+  const mood = location.state?.mood || 'your current mood';
 
   return (
     <div style={{width: '70%', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'left'}}>
-      <h1>Recommended Songs</h1>
+      <h1>Recommended Songs for {mood}</h1>
       {songs.length > 0 ? (
         <ul style={{listStyle: 'none', alignItems: 'center'}}>
           {songs.map((song: Song, index: number) => (
